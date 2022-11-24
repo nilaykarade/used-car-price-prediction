@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Car price prediction by Nilay</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>Car price prediction by Nilay</h1>
+        <form action="predict" method="post">
+            <input class="txt" type="number" placeholder="Enter kilometers" name="kms"  min="0" max="1000000" required><br>
+            <input class="txt" type="number" placeholder="Enter original price" name="original_price"  min="0" max="50000000" required><br>
+            <input class="txt" type="number"  placeholder="Enter car age" name="car_age"  min="0" max="100" required><br>
+            
+
+
+            <p>Select fuel type</p>
+            <BR>
+            <label>
+                <input class="radioBtn" type="radio" id="petrol" name="fuel_type" value="Petrol" required>
+                Petrol
+            </label>
+            <br>
+            
+            <label>
+                <input class="radioBtn" type="radio" id="diesel" name="fuel_type" value="Diesel" required>
+                Diesel
+            </label>
+            <br>
+            
+            <label>
+                <input class="radioBtn" type="radio" id="cng" name="fuel_type" value="CNG" required>
+                CNG
+            </label>
+            <br>	
+            
+            <p>Select transmission type</p>
+            <BR>
+            <label>
+                <input class="radioBtn" type="radio" id="manual" name="transmission_type" value="manual"  required>
+                Manual
+            </label>
+            <br>
+            
+            <label>
+                <input  class="radioBtn" type="radio" id="automatic" name="transmission_type" value="automatic" required>
+                Automatic
+            </label>
+            <br>
+            
+            <button type="submit">Predict car price</button>
+            <br>
+            {{ prediction_value }}
+        </form>
+    </div>
+</body>
+</html>
